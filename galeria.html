@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Galería de fotos y videos — Sim2RealRace activaciones corporativas y simuladores premium.">
+    <title>Galería — S2RR Sim2RealRace</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;1,900&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/site.css">
+</head>
+<body data-page="galeria">
+
+<nav class="navbar">
+    <div class="nav-inner">
+        <a class="nav-brand" href="index.html">
+            <img src="S2RR LOGO PLATE.png" alt="S2RR">
+            
+        </a>
+        <button class="nav-toggle" aria-label="Menú" aria-expanded="false">☰</button>
+        <ul class="nav-menu">
+            <li><a href="galeria.html" data-nav="galeria">Galería</a></li>
+            <li><a href="esports.html" data-nav="esports">E-Sports</a></li>
+            <li><a href="index.html" data-nav="s2rr">S2RR</a></li>
+            <li><a href="fabricamos.html" data-nav="fabricamos">Fabricamos</a></li>
+            <li><a href="partners.html" data-nav="partners">Partners</a></li>
+            <li><a href="tramos.html" data-nav="tramos">Tramos EC</a></li>
+            <li><a href="trabaja.html" data-nav="trabaja">Te Necesitamos</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="page-header">
+    <div class="container">
+        <h1>Galería</h1>
+        <p>Todos nuestros videos y fotos de activaciones, simuladores y eventos.</p>
+    </div>
+</div>
+
+<main>
+    <section class="page-section">
+        <div class="container">
+            <div class="section-panel">
+                <p class="gallery-divider">Videos</p>
+                <div class="gallery-full-grid" id="gallery-videos"></div>
+
+                <p class="gallery-divider">Fotos</p>
+                <div class="gallery-grid" id="gallery-photos"></div>
+
+                <p class="gallery-divider">YouTube</p>
+                <div class="gallery-grid" id="gallery-youtube"></div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <h3>🛑 Reserva tu fecha — Cupo limitado para eventos mensuales</h3>
+    <div class="contact-info">
+        <span><strong>📲 WhatsApp:</strong> <a data-whatsapp href="#" style="color:#ccc;">0964172086</a></span>
+        <span><strong>📧 Correo:</strong> <a id="footer-email" href="#" style="color:#ccc;"></a></span>
+        <span><strong>📍 Ubicación:</strong> Quito, Ecuador (Cobertura Nacional)</span>
+    </div>
+    <div class="social-bar" id="footer-social"></div>
+</footer>
+
+<a class="whatsapp-float" data-whatsapp href="#" aria-label="Contactar por WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.884 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Visor de media">
+    <div class="modal-box">
+        <button class="modal-close" id="modal-close" aria-label="Cerrar">&times;</button>
+        <div id="modal-content"></div>
+    </div>
+</div>
+
+<script src="js/gallery-data.js"></script>
+<script src="js/config.js"></script>
+<script src="js/site.js"></script>
+<script>
+    function buildGalleryVideos() {
+        const grid = document.getElementById('gallery-videos');
+        GALLERY_MEDIA.filter(i => i.type === 'video').forEach(item => {
+            const card = document.createElement('article');
+            card.className = 'gallery-full-card';
+
+            const title = document.createElement('h3');
+            title.textContent = item.title;
+
+            const inner = document.createElement('div');
+            inner.className = 'media-inner';
+
+            const video = document.createElement('video');
+            video.src = item.src;
+            video.controls = true;
+            video.playsInline = true;
+            video.preload = 'metadata';
+            if (item.poster) video.poster = item.poster;
+
+            inner.appendChild(video);
+            card.appendChild(title);
+            card.appendChild(inner);
+            grid.appendChild(card);
+        });
+    }
+
+    function buildGalleryPhotos() {
+        const grid = document.getElementById('gallery-photos');
+        GALLERY_MEDIA.filter(i => i.type === 'photo').forEach(item => {
+            const btn = document.createElement('button');
+            btn.className = 'gallery-item';
+            btn.type = 'button';
+            btn.setAttribute('aria-label', item.title);
+            btn.innerHTML = `
+                <img src="${item.src}" alt="${item.title}" loading="lazy">
+                <span class="item-label">${item.title}</span>
+            `;
+            btn.addEventListener('click', () => openModal('photo', item.src));
+            grid.appendChild(btn);
+        });
+    }
+
+    function buildGalleryYouTube() {
+        const grid = document.getElementById('gallery-youtube');
+        SITE.youtubeVideos.forEach(video => {
+            const id = extractYouTubeId(video.id || video.url);
+            if (!id) return;
+
+            const title = video.title || 'Video S2RR';
+            const btn = document.createElement('button');
+            btn.className = 'gallery-item';
+            btn.type = 'button';
+            btn.setAttribute('aria-label', title);
+            btn.innerHTML = `
+                <img src="https://img.youtube.com/vi/${id}/mqdefault.jpg" alt="${title}" loading="lazy">
+                <span class="play-icon">▶</span>
+                <span class="item-label">${title}</span>
+            `;
+            btn.addEventListener('click', () => openModal('youtube', id));
+            grid.appendChild(btn);
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        buildGalleryVideos();
+        buildGalleryPhotos();
+        buildGalleryYouTube();
+    });
+</script>
+
+</body>
+</html>

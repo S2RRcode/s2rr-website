@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="E-Sports — Sim2RealRace competencias y eventos de sim racing.">
+    <title>E-Sports — S2RR Sim2RealRace</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;1,900&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/site.css">
+    <style>
+        .esports-content {
+            display: grid;
+            gap: 3rem;
+        }
+
+        .mission-box {
+            background: var(--oscuro-secundario);
+            border-left: 4px solid var(--rojo);
+            padding: 2.5rem;
+            border-radius: 0 16px 16px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .mission-box p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #ddd;
+            margin-bottom: 1rem;
+        }
+
+        .mission-box h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--rojo);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .objective-highlight {
+            background: rgba(255, 30, 30, 0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 30, 30, 0.3);
+            margin-top: 2rem;
+        }
+
+        .objective-highlight strong {
+            color: var(--blanco);
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Simulators Grid */
+        .simulators-section {
+            margin-top: 2rem;
+        }
+
+        .simulators-section h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--blanco);
+        }
+
+        .sim-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .sim-card {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--panel-border);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s, border-color 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+        }
+
+        .sim-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--rojo);
+        }
+
+        .sim-logo-container {
+            width: 100%;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .sim-logo {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .sim-fallback {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 1.8rem;
+            color: var(--rojo);
+            letter-spacing: 2px;
+            text-align: center;
+            line-height: 1.1;
+        }
+
+        .sim-title {
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+            color: var(--blanco);
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+
+<body data-page="esports">
+
+    <nav class="navbar">
+        <div class="nav-inner">
+            <a class="nav-brand" href="index.html">
+                <img src="S2RR LOGO PLATE.png" alt="S2RR">
+                
+            </a>
+            <button class="nav-toggle" aria-label="Menú" aria-expanded="false">☰</button>
+            <ul class="nav-menu">
+                <li><a href="galeria.html" data-nav="galeria">Galería</a></li>
+                <li><a href="esports.html" data-nav="esports">E-Sports</a></li>
+                <li><a href="index.html" data-nav="s2rr">S2RR</a></li>
+                <li><a href="fabricamos.html" data-nav="fabricamos">Fabricamos</a></li>
+                <li><a href="partners.html" data-nav="partners">Partners</a></li>
+                <li><a href="tramos.html" data-nav="tramos">Tramos EC</a></li>
+                <li><a href="trabaja.html" data-nav="trabaja">Te Necesitamos</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero" id="inicio" style="min-height: 40vh;">
+        <div class="hero-overlay" aria-hidden="true"></div>
+        <div class="hero-content">
+            <h1
+                style="font-family: 'Montserrat', sans-serif; font-size: 3rem; text-transform: uppercase; margin-bottom: 1rem;">
+                Sim to Real Race</h1>
+            <p class="hero-slogan">E-Sports y Campeonatos Profesionales</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-section">
+            <div class="container">
+                <div class="esports-content">
+
+                    <div class="mission-box reveal">
+                        <h2>Nuestra Visión</h2>
+                        <p>Nos enfocamos en el desarrollo y posicionamiento de centros de entrenamiento con tecnología
+                            de punta. Estamos también al servicio de clubes y deportistas federados, cumpliendo así con
+                            la normativa para beneficios tributarios.</p>
+
+                        <div class="objective-highlight">
+                            <strong>🎯 OBJETIVO PRINCIPAL: Ser un semillero y centro de alto rendimiento.</strong>
+                            <p> <strong> EL ALMA DE S2RR: Democratizar el automovilismo y llevar del mundo de la
+                                    simulacion a la vida real a los Simracers mas rapidos del pais, y vivir nuestra
+                                    pasion al limite. </strong>
+                        </div>
+                        <p style="margin:0;">Hacer de los e-sports algo tan popular como el fútbol. Nos posicionaremos
+                            en todo el Ecuador, en más de 100 cantones.</p>
+                    </div>
+                </div>
+
+                <div class="simulators-section reveal reveal-delay-1">
+                    <h3>Simuladores en nuestros Campeonatos</h3>
+                    <div class="sim-grid">
+
+                        <!-- RBR -->
+                        <div class="sim-card">
+                            <div class="sim-logo-container" id="logo-rbr">
+                                <img src="media/logos/rbr.png" class="sim-logo" alt="Richard Burns Rally Logo"
+                                    onerror="showFallback('logo-rbr', 'RBR')">
+                            </div>
+                            <div class="sim-title">Richard Burns Rally</div>
+                        </div>
+
+                        <!-- AC Evo -->
+                        <div class="sim-card">
+                            <div class="sim-logo-container" id="logo-acevo">
+                                <img src="media/logos/acevo.png" class="sim-logo" alt="Assetto Corsa Evo Logo"
+                                    onerror="showFallback('logo-acevo', 'AC EVO')">
+                            </div>
+                            <div class="sim-title">Assetto Corsa Evo</div>
+                        </div>
+
+                        <!-- AC Rally -->
+                        <div class="sim-card">
+                            <div class="sim-logo-container" id="logo-acrally">
+                                <img src="media/logos/acrally.png" class="sim-logo" alt="Assetto Corsa Rally Logo"
+                                    onerror="showFallback('logo-acrally', 'AC RALLY')">
+                            </div>
+                            <div class="sim-title">Assetto Corsa Rally</div>
+                        </div>
+
+                        <!-- AMS 2 -->
+                        <div class="sim-card">
+                            <div class="sim-logo-container" id="logo-ams2">
+                                <img src="media/logos/ams2.png" class="sim-logo" alt="Automobilista 2 Logo"
+                                    onerror="showFallback('logo-ams2', 'AMS 2')">
+                            </div>
+                            <div class="sim-title">Automobilista 2</div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" id="contacto">
+        <h3>🛑 Reserva tu fecha — Cupo limitado para eventos mensuales</h3>
+        <div class="contact-info">
+            <span><strong>📲 WhatsApp:</strong> <a data-whatsapp href="#" style="color:#ccc;">0964172086</a></span>
+            <span><strong>📧 Correo:</strong> <a id="footer-email" href="#" style="color:#ccc;"></a></span>
+            <span><strong>📍 Ubicación:</strong> Quito, Ecuador (Cobertura Nacional)</span>
+        </div>
+        <div class="social-bar" id="footer-social"></div>
+    </footer>
+
+    <a class="whatsapp-float" data-whatsapp href="#" aria-label="Contactar por WhatsApp">
+        <svg viewBox="0 0 24 24">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.884 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+    </a>
+
+    <script src="js/config.js"></script>
+    <script src="js/site.js"></script>
+    <script>
+        function showFallback(containerId, fallbackText) {
+            const container = document.getElementById(containerId);
+            if (container) {
+                container.innerHTML = `<div class="sim-fallback">${fallbackText}</div>`;
+            }
+        }
+    </script>
+</body>
+
+</html>
