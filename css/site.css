@@ -274,7 +274,12 @@ section.page-section { padding: 1rem 0; }
     overflow: hidden;
 }
 
-.experience-square video,
+.experience-square video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
 .experience-square img {
     width: 100%;
     height: 100%;
@@ -442,7 +447,7 @@ section.page-section { padding: 1rem 0; }
 /* ── Services ── */
 .columns-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 1rem;
 }
 
@@ -663,9 +668,9 @@ section.page-section { padding: 1rem 0; }
     padding: 1.25rem;
     border-radius: 12px;
     text-align: center;
-    border-top: 4px solid var(--rojo);
     box-shadow: 0 4px 12px rgba(0,0,0,.2);
     border: 1px solid var(--panel-border);
+    border-top: 4px solid var(--rojo);
 }
 
 .bullet-item .icon { font-size: 2rem; margin-bottom: .35rem; }
@@ -776,6 +781,94 @@ section.page-section { padding: 1rem 0; }
 .whatsapp-float:hover { transform: scale(1.1); }
 
 .whatsapp-float svg { width: 30px; height: 30px; fill: white; }
+
+/* ── Unamos Fuerzas ── */
+.unamos-hero {
+    background: linear-gradient(135deg, var(--oscuro-secundario) 0%, rgba(225, 6, 0, 0.15) 100%);
+    border: 2px solid var(--rojo);
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 0 30px rgba(225, 6, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.unamos-hero::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle, rgba(225, 6, 0, 0.1) 0%, transparent 70%);
+    animation: rotateGlow 15s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes rotateGlow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.unamos-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--blanco);
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 15px rgba(225, 6, 0, 0.5);
+}
+
+.unamos-subtitle {
+    font-size: 1.15rem;
+    color: #ccc;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-style: italic;
+}
+
+.unamos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.unamos-card {
+    background: rgba(10, 10, 12, 0.8);
+    border: 1px solid rgba(225, 6, 0, 0.3);
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    backdrop-filter: blur(10px);
+}
+
+.unamos-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(225, 6, 0, 0.3);
+    border-color: var(--rojo);
+}
+
+.unamos-card .unamos-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.unamos-card h4 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--blanco);
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+}
+
+.unamos-card p {
+    color: #bbb;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
 
 /* ── Responsive ── */
 @media (min-width: 769px) {

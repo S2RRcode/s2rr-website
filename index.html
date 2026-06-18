@@ -83,6 +83,15 @@
                                 <li>Réplica exacta de fuerzas G, curvas y frenadas.</li>
                             </ul>
                         </div>
+                        <div class="column-card reveal reveal-delay-3">
+                            <h3>👱‍♀️ MODELOS + SIMULADOR</h3>
+                            <ul>
+                                <li>Personaliza tu requerimiento.</li>
+                                <li>Pregunta por nuestras modelos impulsadoras.</li>
+                                <li>Modelos AA & AAA.</li>
+                                <li>Campaña de medios.</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -135,6 +144,11 @@
                                 <li>Incluye Simulador Motion</li>
                                 <li>Para eventos masivos</li>
                             </ul>
+                        </div>
+                        <div class="pricing-card reveal reveal-delay-3" style="justify-content: center;">
+                            <h3 class="pricing-title">Experiencia Personalizada</h3>
+                            <p style="color:#aaa; font-size:0.9rem; margin-bottom:1rem;">Cotiza según las modelos de tu interés</p>
+                            <a class="btn btn-primary" href="https://wa.me/593964172086?text=Hola,%20deseo%20cotizar%20la%20Experiencia%20Personalizada%20con%20modelos" target="_blank" style="width:100%; justify-content:center;">📲 Cotizar por WhatsApp</a>
                         </div>
                     </div>
                 </div>
@@ -235,6 +249,31 @@
                 </div>
             </div>
         </section>
+
+        <!-- Unamos Fuerzas -->
+        <section class="page-section" id="unamos-fuerzas">
+            <div class="container">
+                <div class="unamos-hero reveal">
+                    <div class="unamos-content">
+                        <h2 class="unamos-title">🤝 UNAMOS FUERZAS</h2>
+                        <p class="unamos-subtitle">¿Quieres conocer la potencialidad que tiene nuestro proyecto para impulsar el Sim racing en todo el territorio nacional?</p>
+                        
+                        <div class="unamos-grid">
+                            <div class="unamos-card">
+                                <div class="unamos-icon">🚀</div>
+                                <h4>Metas Multi-Sectoriales</h4>
+                                <p>Proyección expansiva en lo <strong>deportivo, entretenimiento, financiero, ingeniería y desarrollo tecnológico.</strong></p>
+                            </div>
+                            <div class="unamos-card">
+                                <div class="unamos-icon">🏆</div>
+                                <h4>Semillero Deportivo</h4>
+                                <p>Forjamos a los pilotos del futuro. Destacamos la velocidad sin importar la edad: <strong>si eres rápido en la pista, este es tu lugar.</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="footer" id="contacto">
@@ -262,12 +301,11 @@
             const grid = document.getElementById('experience-grid');
             if (!grid || typeof GALLERY_MEDIA === 'undefined') return;
 
-            // Get all videos — autoplay both
-            const videos = GALLERY_MEDIA.filter(i => i.type === 'video');
-            // Get all photos — pick 2 randomly
-            const photos = GALLERY_MEDIA.filter(i => i.type === 'photo');
-            const shuffled = photos.sort(() => Math.random() - 0.5).slice(0, 2);
-            const items = [...videos, ...shuffled];
+            // Get specific videos
+            const videos = GALLERY_MEDIA.filter(i => i.type === 'video' && (i.src.includes('Activacion_de_Marcas_Virtual_Motion.mp4') || i.src.includes('Pimax VR experience.mp4')));
+            // Get specific photo
+            const photos = GALLERY_MEDIA.filter(i => i.type === 'photo' && i.src.includes('branding_activation.jpeg'));
+            const items = [...videos, ...photos];
 
             items.forEach(item => {
                 const card = document.createElement('article');

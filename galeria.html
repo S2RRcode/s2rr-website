@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -16,7 +16,6 @@
     <div class="nav-inner">
         <a class="nav-brand" href="index.html">
             <img src="S2RR LOGO PLATE.png" alt="S2RR">
-            
         </a>
         <button class="nav-toggle" aria-label="Menú" aria-expanded="false">☰</button>
         <ul class="nav-menu">
@@ -47,6 +46,9 @@
 
                 <p class="gallery-divider">Fotos</p>
                 <div class="gallery-grid" id="gallery-photos"></div>
+
+                <p class="gallery-divider">Modelos</p>
+                <div class="gallery-grid" id="gallery-modelos"></div>
 
                 <p class="gallery-divider">YouTube</p>
                 <div class="gallery-grid" id="gallery-youtube"></div>
@@ -122,6 +124,26 @@
         });
     }
 
+    function buildGalleryModelos() {
+        const grid = document.getElementById('gallery-modelos');
+        const modelos = [
+            { src: 'media/gallery/modelo_latina_1_1781806751167.png', title: 'Modelo Showroom 1' },
+            { src: 'media/gallery/modelo_latina_2_1781806759050.png', title: 'Modelo Showroom 2' }
+        ];
+        modelos.forEach(item => {
+            const btn = document.createElement('button');
+            btn.className = 'gallery-item';
+            btn.type = 'button';
+            btn.setAttribute('aria-label', item.title);
+            btn.innerHTML = `
+                <img src="${item.src}" alt="${item.title}" loading="lazy">
+                <span class="item-label">${item.title}</span>
+            `;
+            btn.addEventListener('click', () => openModal('photo', item.src));
+            grid.appendChild(btn);
+        });
+    }
+
     function buildGalleryYouTube() {
         const grid = document.getElementById('gallery-youtube');
         SITE.youtubeVideos.forEach(video => {
@@ -146,6 +168,7 @@
     document.addEventListener('DOMContentLoaded', () => {
         buildGalleryVideos();
         buildGalleryPhotos();
+        buildGalleryModelos();
         buildGalleryYouTube();
     });
 </script>
